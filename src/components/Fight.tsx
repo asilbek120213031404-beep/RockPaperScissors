@@ -1,0 +1,135 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+
+export default function Fight() {
+
+    const [ishora, setIshora] = useState("public/Hand 1.png")
+    const [randomIshora, setRandomIshora] = useState("")
+    const [meningIshoram, setMeningIshoram] = useState("public/Hand 1.png")
+    const [ishoraChiqar, setIshoraChiqar] = useState("")
+
+    const [natija, setNatija] = useState("")
+
+
+    const handleButton = function () {
+        const botIshora = ["Rock", "Paper", "Scissors"]
+        const randomBotIshora = botIshora[
+            Math.floor(Math.random() * botIshora.length)
+        ];
+
+        if (randomBotIshora === "Paper") {
+            setIshora("public/paper-man.png")
+            setRandomIshora("Paper")
+        } else if (randomBotIshora === "Rock") {
+            setRandomIshora("Rock")
+            setIshora("public/rock-man.png")
+        } else {
+            setRandomIshora("Scissors")
+            setIshora("public/scissors-man.png")
+        }
+
+        // console.log(randomBotIshora)
+    }
+
+    const handlePaper = function () {
+        handleButton()
+        setMeningIshoram("public/paper-man.png")
+        setIshoraChiqar("Paper")
+    }
+    const handleRock = function () {
+        handleButton()
+        setIshoraChiqar("Rock")
+        setMeningIshoram("public/rock-man.png")
+    }
+    const handleScissors = function () {
+        handleButton()
+        setIshoraChiqar("Scissors")
+        setMeningIshoram("public/scissors-man.png")
+    }
+
+    const handleRandomIshora = function () {
+        handleButton()
+        const randomIshora = ["Rock", "Paper", "Scissors"]
+        const randomBotIshora = randomIshora[
+            Math.floor(Math.random() * randomIshora.length)
+        ];
+        // setRandomIshora(randomBotIshora)
+        if (randomBotIshora === "Paper") {
+            setIshoraChiqar("Paper")
+            setMeningIshoram("public/paper-man.png")
+        } else if (randomBotIshora === "Rock") {
+            setIshoraChiqar("Rock")
+            setMeningIshoram("public/rock-man.png")
+        } else {
+            setIshoraChiqar("Scissors")
+            setMeningIshoram("public/scissors-man.png")
+        }
+
+        // console.log(randomBotIshora)
+    }
+
+    useEffect(() => {
+        if (randomIshora === "" || ishoraChiqar === "") return;
+    
+        if (randomIshora === ishoraChiqar) {
+            setNatija("Draw 😕");
+        }
+        else if (
+            (randomIshora === "Paper" && ishoraChiqar === "Rock") ||
+            (randomIshora === "Rock" && ishoraChiqar === "Scissors") ||
+            (randomIshora === "Scissors" && ishoraChiqar === "Paper")
+        ) {
+            setNatija("You Lose 😕");
+        }
+        else {
+            setNatija("You Win 🏆");
+            // localStorage.setItem("win", 1)
+        }
+    
+    }, [randomIshora, ishoraChiqar]);
+
+
+    return (
+        <>
+            <section className="bg-[#4847C4] w-full h-[94vh] flex flex-col items-s justify-center gap-20 relative">
+                <div>
+
+                </div>
+                <div className="flex flex-col items-center justify-between gap-32 -mt-20">
+                    <div className="w-[130px] rotate-180">
+                        {
+                            <img width={"120px"} className="z-10" src={ishora} alt="" />
+                        }
+                    </div>
+                    <div className={natija ? "absolute top-[265px] z-30 flex items-center flex-col gap-2 px-10 py-8 bg-white rounded-xl" : "hidden"}>
+                        <h1 className="text-2xl font-medium">{natija}</h1>
+                        <h1 className="text-5xl">{natija === "You win" ? "" : ""}</h1>
+                        <div className="flex items-center gap-5">
+                            <Link to={"/home"} className="flex items-center text-[#B67C62] bg-[#FBC399] py-2 px-4 rounded-3xl border-b-4 gap-2 font-bold"><img src="public/Path.png" alt="" /></Link>
+                            <Link to={"/startFight"} className="flex items-center text-[#B67C62] bg-[#FBC399] py-2 px-4 rounded-3xl border-b-4 gap-2 font-bold"><img src="public/Path copy.png" alt="" /></Link>
+                        </div>
+                    </div>
+                    <div className="flex flex-col items-center ">
+                        <div className="w-[130px]">
+                            {
+                                <img width={"120px"} className="z-10 -mb-39" src={meningIshoram} alt="" />
+                            }
+                        </div>
+                        <div className="z-20 flex flex-col items-center gap-4 ">
+                            <div className="flex items-center gap-2">
+                                <button onClick={handleRock} className="flex flex-col items-center gap-2 bg-[#232586] text-white rounded-full py-2 w-[70px] h-[70px] text-[10px] cursor-pointer -mb-20"><img width={"20px"} src="public/Shape (3).png" alt="" /> Rock</button>
+                                <button onClick={handlePaper} className="flex flex-col items-center gap-2 bg-[#232586] text-white rounded-full py-2 w-[70px] h-[70px] text-[10px] cursor-pointer"><img width={"20px"} src="public/Shape (4).png" alt="" /> Paper</button>
+                                <button onClick={handleScissors} className="flex flex-col items-center gap-2 bg-[#232586] text-white rounded-full py-2 w-[70px] h-[70px] text-[10px] cursor-pointer -mb-20"><img width={"20px"} src="public/Fill-1.png" alt="" /> Scissors</button>
+                            </div>
+                            <button onClick={handleRandomIshora} className="flex flex-col items-center gap-2 bg-[#232586] text-white rounded-full py-2 w-[70px] h-[70px] text-[10px] cursor-pointer"><img width={"20px"} src="public/Random.png" alt="" /> Scissors</button>
+                        </div>
+                    </div>
+                </div>
+                {/* <div className="w-[100px] bg-white h-[100px] z-50">
+                    <h1 className="text-white">hello</h1>
+                </div> */}
+            </section>
+        </>
+    )
+}
