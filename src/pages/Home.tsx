@@ -91,7 +91,7 @@ export default function Home() {
             </main>
             <footer className="flex items-center justify-between w-full mt-10 p-5 -mb-5">
                 <img onClick={fight} className="cursor-pointer" src="/Play-icon.png" alt="" />
-                <img onClick={handleToggle} className="cursor-pointer" src="public\Menu-icon.png" alt="" />
+                <img onClick={handleToggle} className="cursor-pointer" src="/Menu-icon.png" alt="" />
                 <button className="flex items-center gap-2 cursor-pointer" onClick={handleLogout}>{wait ? "Waiting" : "Log Out"}<img width={"20px"} src="/logout (1).png" alt="" /></button>
             </footer>
         </>
