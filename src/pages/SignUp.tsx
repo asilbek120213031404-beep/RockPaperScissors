@@ -46,7 +46,7 @@ export default function SignUp() {
 
     return (
         <div className='flex items-center justify-center flex-col gap-10 px-5 py-10'>
-            <img src="public/Group 20.png" alt="" />
+            <img src="/Group 20.png" alt="" />
             <h3 className='text-3xl font-bold '>Create Account</h3>
             <div className='flex flex-col items-center gap-10'>
                 <div className='flex items-center justify-center gap-5'>

@@ -12,19 +12,19 @@ export default function Boarding() {
         imgUrl2: ''
     }
     if (step === 1) {
-        data.imgUrl = 'public/Maqast.png'
+        data.imgUrl = '/Maqast.png'
         data.title = 'Scissors'
-        data.imgUrl2 = 'public/Frame 1 (2).png'
+        data.imgUrl2 = '/Frame 1 (2).png'
     }
     else if (step === 2) {
-        data.imgUrl = 'public/Rock.png';
+        data.imgUrl = '/Rock.png';
         data.title = 'Rock'
-        data.imgUrl2 = 'public/Frame 1 (3).png'
+        data.imgUrl2 = '/Frame 1 (3).png'
     }
     else if (step === 3) {
-        data.imgUrl = 'public/Paper.png';
+        data.imgUrl = '/Paper.png';
         data.title = 'Paper'
-        data.imgUrl2 = 'public/Frame 1 (4).png'
+        data.imgUrl2 = '/Frame 1 (4).png'
     }
 
     function handleChange(a: "back" | "next") {
@@ -55,9 +55,9 @@ export default function Boarding() {
                   <img className="w-20 mb-4" src={data.imgUrl2} alt="" />
                   <h2 className="text-white font-bold text-5xl mb-5">{data.title}</h2>
                   <div className="flex gap-3">
-                    { step > 1 && <button onClick={() => handleChange('back')} className="py-2 px-10 rounded-3xl text-[#B67C62] flex items-center gap-2 font-bold bg-[#FBC399] border-b-4 border-[#EA9975] cursor-pointer" ><img width={"20px"} src="public/Path (3).png" alt="" />Back</button>}
+                    { step > 1 && <button onClick={() => handleChange('back')} className="py-2 px-10 rounded-3xl text-[#B67C62] flex items-center gap-2 font-bold bg-[#FBC399] border-b-4 border-[#EA9975] cursor-pointer" ><img width={"20px"} src="/Path (3).png" alt="" />Back</button>}
                     
-                    { step < 3 ? <button onClick={() => handleChange('next')} className="py-2 px-10 rounded-3xl text-[#B67C62] flex items-center gap-2 font-bold bg-[#FBC399] border-b-4 border-[#EA9975] cursor-pointer">Next <img width={"20px"} src="public/Path (2).png" alt="" /></button> : <button onClick={handleStart} className="py-2 px-4 rounded-3xl font-bold bg-[#FBC399] border-b-4 border-[#EA9975] text-[#B67C62] cursor-pointer">Let's start</button>}
+                    { step < 3 ? <button onClick={() => handleChange('next')} className="py-2 px-10 rounded-3xl text-[#B67C62] flex items-center gap-2 font-bold bg-[#FBC399] border-b-4 border-[#EA9975] cursor-pointer">Next <img width={"20px"} src="/Path (2).png" alt="" /></button> : <button onClick={handleStart} className="py-2 px-4 rounded-3xl font-bold bg-[#FBC399] border-b-4 border-[#EA9975] text-[#B67C62] cursor-pointer">Let's start</button>}
 
                   </div>
             </div>

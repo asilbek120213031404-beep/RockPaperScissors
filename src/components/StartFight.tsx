@@ -30,7 +30,7 @@ export default function StartFight() {
     const names = ["Ali", "Vali", "John", "Emma", "Alex"]
     const wins = [5, 10, 15, 20, 12]
     const loses = [5, 10, 15, 20, 12]
-    const avatar = ["public/Group-60.png", "public/Group-60-Copy.png"]
+    const avatar = ["/Group-60.png", "/Group-60-Copy.png"]
 
     const randomName = names[
         Math.floor(Math.random() * names.length)

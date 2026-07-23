@@ -62,8 +62,8 @@ export default function Home() {
                     <h3>{foydalanuvchi.full_name}</h3>
                 </div>
                 <div className="flex items-center gap-4">
-                    <img src="public/Status.png" alt="" />
-                    <img src="public/Coins.png" alt="" />
+                    <img src="/Status.png" alt="" />
+                    <img src="/Coins.png" alt="" />
                 </div>
             </header>
             <main className="flex flex-col items-center gap-10 relative">
@@ -83,16 +83,16 @@ export default function Home() {
                         🎯 Omad tilaymiz va g'alaba siz bilan bo'lsin!
                     </p>
                 </div>
-                <img width={"150px"} src="public/Group 20.png" alt="" />
-                <img width={'350px'} src="public/sparring.png" alt="" />
+                <img width={"150px"} src="/Group 20.png" alt="" />
+                <img width={'350px'} src="/sparring.png" alt="" />
                 <div className="flex items-center gap-3 py-2 px-10 border-b-4 bg-[#FBC399] rounded-4xl border-[#EA9975] text-white w-[300px] text-lg font-bold cursor-pointer">
                     <Link to={"/startFight"}><p>Start Find Your opponent</p></Link>
                 </div>
             </main>
             <footer className="flex items-center justify-between w-full mt-10 p-5 -mb-5">
-                <img onClick={fight} className="cursor-pointer" src="public/Play-icon.png" alt="" />
+                <img onClick={fight} className="cursor-pointer" src="/Play-icon.png" alt="" />
                 <img onClick={handleToggle} className="cursor-pointer" src="public\Menu-icon.png" alt="" />
-                <button className="flex items-center gap-2 cursor-pointer" onClick={handleLogout}>{wait ? "Waiting" : "Log Out"}<img width={"20px"} src="public/logout (1).png" alt="" /></button>
+                <button className="flex items-center gap-2 cursor-pointer" onClick={handleLogout}>{wait ? "Waiting" : "Log Out"}<img width={"20px"} src="/logout (1).png" alt="" /></button>
             </footer>
         </>
     )
