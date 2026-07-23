@@ -1,11 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import OnBoarding1 from "./pages/onBoarding1";
-// import OnBoarding2 from "./pages/onBoarding2";
-// import OnBoarding3 from "./pages/onBoarding3";
 import SignIn from "./pages/SignIn";
-import { useEffect } from "react";
-import { supabase } from './lib/supabaseClient.js'
 import Home from "./pages/Home.js";
 import StartFight from "./components/StartFight.js";
 import Fight from "./components/Fight.js";

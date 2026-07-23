@@ -17,9 +17,8 @@ export default function Home() {
         navigate("/startFight")
     }
 
-    function handleToggle(prev){
-        prev = !natija
-        setNatija(prev)
+    function handleToggle(){
+        setNatija(!natija)
     } 
 
     const handleLogout = async () => {
