@@ -7,31 +7,31 @@ export default function Boarding() {
     const navigate = useNavigate()
 
     let data = {
-        imgUlr: '',
+        imgUrl: '',
         title: '',
         imgUrl2: ''
     }
     if (step === 1) {
-        data.imgUlr = 'public/Maqast.png'
+        data.imgUrl = 'public/Maqast.png'
         data.title = 'Scissors'
         data.imgUrl2 = 'public/Frame 1 (2).png'
     }
     else if (step === 2) {
-        data.imgUlr = 'public/Rock.png';
+        data.imgUrl = 'public/Rock.png';
         data.title = 'Rock'
         data.imgUrl2 = 'public/Frame 1 (3).png'
     }
     else if (step === 3) {
-        data.imgUlr = 'public/Paper.png';
+        data.imgUrl = 'public/Paper.png';
         data.title = 'Paper'
         data.imgUrl2 = 'public/Frame 1 (4).png'
     }
 
-    function handleChange(direction) {
-        if (direction === 'back') {
-            setStep(prev => prev -= 1)
-        } else if ( direction === 'next') {
-            setStep(prev => prev += 1)
+    function handleChange(a: "back" | "next") {
+        if (a === "back") {
+            setStep(prev => Math.max(prev - 1, 1));
+        } else {
+            setStep(prev => Math.min(prev + 1, 3));
         }
     }
 
@@ -43,7 +43,7 @@ export default function Boarding() {
     
     return (
         <div className="relative h-[95vh] overflow-hidden">
-            <img className="w-40 relative top-1/6 left-1/2 -translate-x-1/2" src={data.imgUlr} alt="" />
+            <img className="w-40 relative top-1/6 left-1/2 -translate-x-1/2" src={data.imgUrl} alt="" />
 
 
             <div className={clsx(

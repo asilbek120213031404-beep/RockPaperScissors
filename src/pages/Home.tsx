@@ -30,7 +30,7 @@ export default function Home() {
         }
     }
 
-    const [foydalanuvchi, setUser] = useState({})
+    const [foydalanuvchi, setUser] = useState(null)
 
 
     useEffect(() => {

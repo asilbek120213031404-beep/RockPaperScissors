@@ -14,11 +14,7 @@ import SignUp from "./pages/SignUp.js";
 export default function App() {
 
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      // console.log(data.session);
-    });
-  }, []);
+ 
 
   return (
     <>

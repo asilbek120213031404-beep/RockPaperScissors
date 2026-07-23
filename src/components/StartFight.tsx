@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function StartFight() {
 
-    const [foydalanuvchi, setUser] = useState({})
+    const [foydalanuvchi, setUser] = useState(null)
     const navigate = useNavigate();
 
 
