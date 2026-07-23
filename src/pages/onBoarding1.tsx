@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export default function Boarding() {
-    const [step, setStep] = useState(1)
+    const [step, setStep] = useState<number>(1)
     const navigate = useNavigate()
 
     let data = {

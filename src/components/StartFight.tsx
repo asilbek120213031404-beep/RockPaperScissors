@@ -2,9 +2,14 @@ import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient.js";
 import { useNavigate } from "react-router-dom";
 
+interface UserData {
+    avatar_url?: string;
+    full_name?: string;
+}
+
 export default function StartFight() {
 
-    const [foydalanuvchi, setUser] = useState(null)
+    const [foydalanuvchi, setUser] = useState<UserData>({})
     const navigate = useNavigate();
 
 
@@ -15,7 +20,9 @@ export default function StartFight() {
             } = await supabase.auth.getUser();
 
             console.log(user);
-            setUser(user.user_metadata)
+            if (user) {
+                setUser(user.user_metadata);
+            }
         }
         takeUser()
     }, [])
