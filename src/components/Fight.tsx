@@ -71,7 +71,7 @@ export default function Fight() {
 
     useEffect(() => {
         if (randomIshora === "" || ishoraChiqar === "") return;
-    
+
         if (randomIshora === ishoraChiqar) {
             setNatija("Draw 😕");
         }
@@ -86,17 +86,41 @@ export default function Fight() {
             setNatija("You Win 🏆");
             // localStorage.setItem("win", 1)
         }
-    
+
     }, [randomIshora, ishoraChiqar]);
+
+    const TOTAL_TIME = 15;
+    const [time, setTime] = useState(TOTAL_TIME);
+
+    useEffect(() => {
+        if (time <= 0){
+            setNatija("You Lose");
+            return
+        }
+
+        const interval = setInterval(() => {
+            setTime((prev) => prev - 1);
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [time]);
+
+    const percent = (time / TOTAL_TIME) * 100;
+
 
 
     return (
         <>
             <section className="bg-[#4847C4] w-full h-[94vh] flex flex-col items-s justify-center gap-20 relative">
-                <div>
-
+                <div className="flex flex-col-reverse gap-10 items-center justify-between w-3 h-52 absolute ml-3">
+                    <div
+                        className="absolute bottom-5 left-0 w-3 bg-[#9ED37A] rounded-full transition-all duration-1000"
+                        style={{ height: `${percent}%`, }}></div>
+                    <h1 className="text-white text-sm font-light">
+                        0:{time.toString().padStart(2, "0")}
+                    </h1>
                 </div>
-                <div className="flex flex-col items-center justify-between gap-32 -mt-20">
+                <div className="flex flex-col items-center justify-between gap-32 ">
                     <div className="w-[130px] rotate-180">
                         {
                             <img width={"120px"} className="z-10" src={ishora} alt="" />
@@ -110,6 +134,7 @@ export default function Fight() {
                             <Link to={"/startFight"} className="flex items-center text-[#B67C62] bg-[#FBC399] py-2 px-4 rounded-3xl border-b-4 gap-2 font-bold"><img src="/Path copy.png" alt="" /></Link>
                         </div>
                     </div>
+                    <h1 className="z-0 absolute top-[320px] text-6xl text-[#FFB24C] font-light">Fight</h1>
                     <div className="flex flex-col items-center ">
                         <div className="w-[130px]">
                             {

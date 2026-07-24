@@ -67,7 +67,7 @@ export default function Home() {
                 </div>
             </header>
             <main className="flex flex-col items-center gap-10 relative">
-                <div className={natija ? "absolute z-30 flex items-center flex-col gap-2 px-8 py-10 bg-[rgba(0,0,0,0.70)] rounded-xl text-sm max-w-[320px] text-white" : "hidden"}>
+                <div className={natija ? "absolute z-30 flex items-center flex-col gap-2 px-8 py-10 bg-[rgba(0,0,0,0.70)] rounded-xl text-sm max-w-[320px] text-white" : "hidden transition-all"}>
                     <h1 onClick={handleToggle} className="absolute right-4 top-2 text-3xl cursor-pointer">×</h1>
                     <p># 🎮 O'yin haqida <br />
                         **Rock, Paper, Scissors** — bu ikki o'yinchi o'rtasida o'ynaladigan klassik va qiziqarli o'yin. Har bir o'yinchi bir vaqtning o'zida uchta ishoradan birini tanlaydi: <br /> <br />
